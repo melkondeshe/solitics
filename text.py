@@ -23,7 +23,21 @@ def my_portfolio_text(**kwargs):
         'my_portfolio_1_10' : f"{kwargs['company_name']} which is part of your portfolio has just released a {kwargs['negative_adjective']} {kwargs['report_type']} report. One of the parameters that stood out was {kwargs['most_negative_param_name']} which {kwargs['increased_decreased']} by {kwargs['most_negative_param_pct']}%, which historically has a {kwargs['most_negative_param_coeff']}% chance of impacting the stock price.",
         'my_portfolio_1_11' : f"{kwargs['company_name']} which is part of your portfolio has just released very {kwargs['negative_adjective']} {kwargs['report_type']} report, like their previous report which was also {kwargs['negative_adjective']}. This trend which has continued for the last {kwargs['number_of_last_underperform_in_a_row']} quarters indicates negative momentum and uncerainty. [CTA]"
     }
-    return version[kwargs["text_version"]]
+    body = {
+	'type': 'portoflio',
+	'company': kwargs['company_name'],
+	'company_isin': kwargs['isin'],
+	'peer_isin': 'msft_isin',
+	'sector': kwargs['sector'],
+	'industry': kwargs['industry'],
+	'country': kwargs['country'],
+	'region': kwargs['region'],
+	'report_type' : kwargs['report_type'],
+	'body': version[kwargs["text_version"]], 
+	'importance': 1,
+    }
+
+    return body
 
 def top_3_industry_text(**kwargs):
     version = {
@@ -31,7 +45,21 @@ def top_3_industry_text(**kwargs):
         'text_2':f"{kwargs['top_3_industry_comany_name']} has just released a {kwargs['positive_adjective']} {kwargs['report_type']} report, like their previous report which was also {kwargs['positive_adjective']}. This trend has continued for the last {kwargs['number_of_last_buy_and_strongbuy_in_a_row']} quarters, placing {kwargs['top_3_industry_comany_name']} among the top 3 {kwargs['industry']} stocks. [CTA]",
         'text_3':f"{kwargs['top_3_industry_comany_name']} has just released a {kwargs['positive_adjective']} {kwargs['report_type']} report, compared the previous report which was {kwargs['negative_adjective']}. This improvement in {kwargs['top_3_industry_comany_name']} fundamnetals placing it among the top 3 {kwargs['industry']} stocks. [CTA]"
     }
-    return version[kwargs["text_version"]]
+
+    {
+	'type': 'top_in_industry',
+	'company': kwargs['company_name'],
+	'company_isin': kwargs['isin'],
+	'peer_isin': 'msft_isin',
+	'sector': kwargs['sector'],
+	'industry': kwargs['industry'],
+	'country': kwargs['country'],
+	'region': kwargs['region'],
+	'report_type': kwargs['report_type'],
+	'body': version[kwargs["text_version"]], 
+	'importance': 2,
+    }
+    return 
 
 def top_7_sector_text(**kwargs):
     version = {
@@ -39,7 +67,20 @@ def top_7_sector_text(**kwargs):
         'text_2':f"{kwargs['top_7_sector_comany_name']} has just released a {kwargs['positive_adjective']} {kwargs['report_type']} report, like their previous report which was also {kwargs['positive_adjective']}. This trend has continued for the last {kwargs['number_of_last_buy_and_strongbuy_in_a_row']} quarters, placing {kwargs['top_7_sector_comany_name']} among the top 7 {kwargs['sector']} stocks. [CTA]",
         'text_3':f"{kwargs['top_7_sector_comany_name']} has just released a {kwargs['positive_adjective']} {kwargs['report_type']} report, compared the previous report which was {kwargs['negative_adjective']}. This improvement in {kwargs['top_7_sector_comany_name']} fundamnetals placing it among the top 7 {kwargs['sector']} stocks. [CTA]"
     }
-    return version[kwargs["text_version"]]
+    body = {
+	'type': 'top_in_sector',
+	'company': kwargs["company_name"],
+	'company_isin': kwargs['isin'],
+	'peer_isin': 'msft_isin',
+	'sector':kwargs["sector"],
+	'industry': kwargs["sector"],
+	'country': kwargs["country"],
+	'region': kwargs["region"],
+	'report_type': kwargs["report_type"],
+	'body': version[kwargs["text_version"]], 
+	'importance': 3,
+    }
+    return body
 
 def peer_text(**kwargs):
     version = {
@@ -56,7 +97,20 @@ def peer_text(**kwargs):
         'text_11':f"{kwargs['peer_name']}, a direct competitor of {kwargs['company_name']} which is part of your portfolio has just released a {kwargs['negative_adjective']} {kwargs['report_type']} report. One of the parameters that stood out was {kwargs['most_negative_param_name']} which {kwargs['increased_decreased']} by {kwargs['most_negative_param_pct']}%. It's a warning sign that might indicate a negative momentum and uncertainty. [CTA]",
         'text_12':f"{kwargs['peer_name']}, a direct competitor of {kwargs['company_name']} which is part of your portfolio has just released very {kwargs['negative_adjective']} {kwargs['report_type']} report, join their previous report which was also {kwargs['negative_adjective']}. This trend which continue for the last {kwargs['number_of_last_underperform_in_a_row']} quarters indicates for a negative momentum and uncerainty. [CTA]",
     }
-    return version[kwargs["text_version"]]
+    body = {
+	'type': 'peer',
+	'company': kwargs["company_name"],
+	'company_isin': kwargs['isin'],
+	'peer_isin': 'msft_isin',
+	'sector': kwargs["sector"],
+	'industry': kwargs["sector"],
+	'country': kwargs["country"],
+	'region': kwargs["region"],
+	'report_type': kwargs["report_type"],
+	'body': version[kwargs["text_version"]], 
+	'importance': 4,
+    }
+    return body
 
 def large_market_cap_text(**kwargs):
     version = {
@@ -72,4 +126,17 @@ def large_market_cap_text(**kwargs):
         'text_10':f"{kwargs['company_name']} has just released a {kwargs['negative_adjective']} {kwargs['report_type']} report. One of the parameters that stood out was {kwargs['most_negative_param_name']} which {kwargs['increased_decreased']} by {kwargs['most_negative_param_pct']}%, which historically has a {kwargs['most_negative_param_coeff']}% chance of impacting the stock price.",
         'text_11':f"{kwargs['company_name']} has just released a very {kwargs['negative_adjective']} {kwargs['report_type']} report, like their previous report which was also {kwargs['negative_adjective']}. This trend which has continued for the last {kwargs['number_of_last_underperform_in_a_row']} quarters indicates negative momentum and uncerainty. [CTA]"
     }
-    return version[kwargs["text_version"]]
+    body = {
+	'type': 'large_market_cap',
+	'company':kwargs["company_name"],
+	'company_isin': kwargs['isin'],
+	'peer_isin': 'msft_isin',
+	'sector': kwargs["sector"],
+	'industry': kwargs["sector"],
+	'country': kwargs["country"],
+	'region': kwargs["region"],
+	'report_type': kwargs["report_type"],
+	'body': version[kwargs["text_version"]], 
+	'importance': 5,
+    }
+    return body
