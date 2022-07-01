@@ -181,6 +181,7 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': False,
   'f_a_status': True,
+  'rule_3':True,
   'text':'text_1'
 },{
   'rec_1' : 4,

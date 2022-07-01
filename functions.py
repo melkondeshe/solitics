@@ -13,15 +13,18 @@ def my_portfolio(file_path, input):
 
   mdb['date'] = pd.to_datetime(mdb['date']).dt.date
 #   checking 1st rule
-  InternalRule1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
+  internal_rule_1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
 #   checking 2nd rule
-  InternalRule2 = InternalRule1[(InternalRule1.buying_recommendation == input['rec_1']) | (InternalRule1.buying_recommendation == input['rec_2'])]
+  internal_rule_2 = internal_rule_1[(internal_rule_1.buying_recommendation == input['rec_1']) | (internal_rule_1.buying_recommendation == input['rec_2'])]
 #   checking 3nd rule
-  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @InternalRule2.cid")
+  sort_date = mdb.sort_values(by=['cid', 'date'], ascending=False).reset_index(drop=True)
+  query_cid = sort_date.query("cid in @internal_rule_2.cid")
+  print(query_cid[['date', 'cid']])
+  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
   mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
-  InternalRule3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
   top_percent = 0
-  compared = InternalRule2.query("cid in @InternalRule3.cid")
+  compared = internal_rule_2.query("cid in @internal_rule_3.cid")
   final = compared
   if input['final_assessment']:
     #   checking 3th rule
@@ -73,14 +76,15 @@ def top_3_industry(file_path, input):
   mdb = pd.read_parquet(file_path)
   now_date = datetime.now().date()
   mdb['date'] = pd.to_datetime(mdb['date']).dt.date
-  InternalRule1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
-  InternalRule2 = InternalRule1[(InternalRule1.buying_recommendation == input['rec_1']) | (InternalRule1.buying_recommendation == input['rec_2'])]
-  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @InternalRule2.cid")
+  internal_rule_1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
+  internal_rule_2 = internal_rule_1[(internal_rule_1.buying_recommendation == input['rec_1']) | (internal_rule_1.buying_recommendation == input['rec_2'])]
+  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
   mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
-  InternalRule3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
   sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=False)[:3]
-  compared = InternalRule2.query("cid in @InternalRule3.cid")
+  compared = internal_rule_2.query("cid in @internal_rule_3.cid")
   final = compared.query("cid in @sorted_mdb.cid")
+
   if final.empty:
       return False
 
@@ -102,7 +106,7 @@ def top_3_industry(file_path, input):
   most_negative_param_name = int(final.sort_values(by=['assets_assetsc_raw'], ascending=True).iloc[0]['assets_assetsc_raw'])
   most_negative_param_pct = int(final.sort_values(by=['assets_assetsc_pct'], ascending=True).iloc[0]['assets_assetsc_pct'])
   most_negative_param_coeff = int(final.sort_values(by=['assets_assetsc'], ascending=True).iloc[0]['assets_assetsc'])
-  top_3_industry_comany_name = None
+  top_3_industry_comany_name = final.iloc[0]['name']
   if final.iloc[0]['instance'] == 'Original':
     report_type = 'Official'
   else:
@@ -122,13 +126,16 @@ def top_7_sector(file_path, input):
   mdb = pd.read_parquet(file_path)
   now_date = datetime.now().date()
   mdb['date'] = pd.to_datetime(mdb['date']).dt.date
-  InternalRule1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
-  InternalRule2 = InternalRule1[(InternalRule1.buying_recommendation == input['rec_1']) | (InternalRule1.buying_recommendation == input['rec_2'])]
-  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @InternalRule2.cid")
+  internal_rule_1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
+  internal_rule_2 = internal_rule_1[(internal_rule_1.buying_recommendation == input['rec_1']) | (internal_rule_1.buying_recommendation == input['rec_2'])]
+  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
   mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
-  InternalRule3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
-  
-  final = InternalRule3
+  internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=False)[:7]
+  compared = internal_rule_2.query("cid in @internal_rule_3.cid")
+  final = compared.query("cid in @sorted_mdb.cid")
+  if final.empty:
+      return False
   name = final.iloc[0]['name']
   industry = final.iloc[0]['industry']
   sector = final.iloc[0]['sector']
@@ -147,7 +154,7 @@ def top_7_sector(file_path, input):
   most_negative_param_name = int(final.sort_values(by=['assets_assetsc_raw'], ascending=True).iloc[0]['assets_assetsc_raw'])
   most_negative_param_pct = int(final.sort_values(by=['assets_assetsc_pct'], ascending=True).iloc[0]['assets_assetsc_pct'])
   most_negative_param_coeff = int(final.sort_values(by=['assets_assetsc'], ascending=True).iloc[0]['assets_assetsc'])
-  top_7_sector_comany_name = None
+  top_7_sector_comany_name = final.iloc[0]['name']
   if final.iloc[0]['instance'] == 'Original':
     report_type = 'Official'
   else:
@@ -168,13 +175,18 @@ def peers(file_path, input):
   mdb = pd.read_parquet(file_path)
   now_date = datetime.now().date()
   mdb['date'] = pd.to_datetime(mdb['date']).dt.date
-  InternalRule1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
-  InternalRule2 = InternalRule1[(InternalRule1.buying_recommendation == input['rec_1']) | (InternalRule1.buying_recommendation == input['rec_2'])]
-  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @InternalRule2.cid")
-  mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
-  InternalRule3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  internal_rule_1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
+  internal_rule_2 = internal_rule_1[(internal_rule_1.buying_recommendation == input['rec_1']) | (internal_rule_1.buying_recommendation == input['rec_2'])]
   top_percent = 0
-  compared = InternalRule2.query("name in @InternalRule3.name")
+  # if 'rule_3' in input.keys():
+  #   print
+  # else:
+  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
+  mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
+  internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  print(internal_rule_3.last_report_of_company)
+  
+  compared = internal_rule_2.query("name in @internal_rule_3.name")
   if input['final_assessment']:
     sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=input['f_a_status'])[:10]
     top_list = [1,5,10]
@@ -187,7 +199,7 @@ def peers(file_path, input):
         top_percent = i
         continue
   else:
-    final = InternalRule3
+    final = internal_rule_3
 
   name = final.iloc[0]['name']
   industry = final.iloc[0]['industry']
@@ -226,14 +238,14 @@ def large_market_cap(file_path, input):
   mdb = pd.read_parquet(file_path)
   now_date = datetime.now().date()
   mdb['date'] = pd.to_datetime(mdb['date']).dt.date
-  InternalRule1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
-  InternalRule2 = InternalRule1[(InternalRule1.buying_recommendation == input['rec_1']) | (InternalRule1.buying_recommendation == input['rec_2'])]
-  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @InternalRule2.cid")
+  internal_rule_1 = mdb.loc[now_date - mdb['date'] <= timedelta(200)]
+  internal_rule_2 = internal_rule_1[(internal_rule_1.buying_recommendation == input['rec_1']) | (internal_rule_1.buying_recommendation == input['rec_2'])]
+  filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
   mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
-  InternalRule3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
+  internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
   top_percent = 0
   if input['final_assessment']:
-    compared = InternalRule2.query("name in @InternalRule3.name")
+    compared = internal_rule_2.query("name in @internal_rule_3.name")
     sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=input['f_a_status'])[:10]
     top_list = [1,5,10]
     for i in top_list:
@@ -245,7 +257,7 @@ def large_market_cap(file_path, input):
         top_percent = i
         continue
   else:
-    final = InternalRule3
+    final = internal_rule_3
 
   name = final.iloc[0]['name']
   industry = final.iloc[0]['industry']
