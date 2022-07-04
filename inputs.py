@@ -1,4 +1,5 @@
-portfolio_inputs = [
+all_inputs = [
+  [
   {
     'rec_1' : 4,
     'rec_2' : 5, 
@@ -7,7 +8,9 @@ portfolio_inputs = [
     'rec_was_3' : 1,
     'final_assessment': True,
     'f_a_status' : False,
-    'text':'my_portfolio_1_1'
+    'event':'portfolio',
+    'text_version':'text_1', 
+    'importance' : 1
 },
 {
     'rec_1' : 4,
@@ -17,7 +20,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': True,
     'f_a_status' : False,
-    'text':'my_portfolio_1_2'
+    'event':'portfolio',
+    'text_version':'text_2', 
+    'importance' : 1
 },
 {
     'rec_1' : 4,
@@ -27,7 +32,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': True,
     'f_a_status' : False,
-    'text':'my_portfolio_1_3'
+    'event':'portfolio',
+    'text_version':'text_3', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -37,7 +44,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': True,
     'f_a_status' : True,
-    'text':'my_portfolio_1_4'
+    'event':'portfolio',
+    'text_version':'text_4', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -47,7 +56,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': True,
     'f_a_status' : True,
-    'text':'my_portfolio_1_5'
+    'event':'portfolio',
+    'text_version':'text_5', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -57,7 +68,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': True,
     'f_a_status' : True,
-    'text':'my_portfolio_1_6'
+   'event':'portfolio',
+   'text_version':'text_6', 
+   'importance' : 1
 },
 {
     'rec_1' : 4,
@@ -67,7 +80,9 @@ portfolio_inputs = [
     'rec_was_3' : 3,
     'final_assessment': False,
     'f_a_status' : True,
-    'text':'my_portfolio_1_7'
+    'event':'portfolio',
+    'text_version':'text_7', 
+    'importance' : 1
 },
 {
     'rec_1' : 4,
@@ -77,7 +92,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': False,
     'f_a_status' : True,
-    'text':'my_portfolio_1_8'
+    'event':'portfolio',
+    'text_version':'text_8', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -87,7 +104,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': False,
     'f_a_status' : True,
-    'text':'my_portfolio_1_9'
+    'event':'portfolio',
+    'text_version':'text_9', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -97,7 +116,9 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': False,
     'f_a_status' : True,
-    'text':'my_portfolio_1_10'
+    'event':'portfolio',
+    'text_version':'text_10', 
+    'importance' : 1
 },
 {
     'rec_1' : 1,
@@ -107,100 +128,240 @@ portfolio_inputs = [
     'rec_was_3' : None,
     'final_assessment': False,
     'f_a_status' : True,
-    'text':'my_portfolio_1_11'
+    'event':'portfolio',
+    'text_version':'text_11', 
+    'importance' : 1
 },
-]
-
-top_3_industry_inputs = [
+],
+  [
+    {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 3,
+    'rec_was_2' : None,
+    'rec_was_3' : None,  
+    'part_of_top3': True,
+    'event':'top_3_industry',
+    'text_version':'text_1',
+    'importance' : 2
+  },
   {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 4,
+    'rec_was_2' : 5,
+    'rec_was_3' : None,  
+    'part_of_top3': True,
+    'event':'top_3_industry',
+    'text_version':'text_2', 
+    'importance' : 2
+  },
+  {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,  
+    'part_of_top3': True,
+    'event':'top_3_industry',
+    'text_version':'text_3', 
+    'importance' : 2
+  },
+  ],
+  [
+    {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 3,
+    'rec_was_2' : None,
+    'rec_was_3' : None,  
+    'part_of_top7': True,
+    'event':'top_7_sector',
+    'text_version':'text_1', 
+    'importance' : 3
+  },
+  {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : None,
+    'rec_was_2' : None,
+    'rec_was_3' : None,  
+    'part_of_top7': True,
+    'event':'top_7_sector',
+    'text_version':'text_2', 
+    'importance' : 3
+  },
+  {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,  
+    'part_of_top7': True,
+    'event':'top_7_sector',
+    'text_version':'text_3', 
+    'importance' : 3
+  },
+  ],
+  [
+
+    {
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,
+    'final_assessment': False,
+    'f_a_status': True,
+    'rule_3':True,
+    'event':'peers',
+    'text_version':'text_1', 
+    'importance' : 4
+  },{
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,  
+    'final_assessment': True,
+    'f_a_status': False,
+    'event':'peers',
+    'text_version':'text_2', 
+    'importance' : 4
+  },{
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 4,
+    'rec_was_2' : 5,
+    'rec_was_3' : None,
+    'final_assessment': True,
+    'f_a_status': False,
+    'event':'peers',
+    'text_version':'text_3', 
+    'importance' : 4
+  },{
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 3,
+    'rec_was_2' : None,
+    'rec_was_3' : None,
+    'final_assessment': True,
+    'f_a_status': False,
+    'event':'peers',
+    'text_version':'text_4', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,
+    'final_assessment': True, 
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_5', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 4,
+    'rec_was_2' : 5,
+    'rec_was_3' : None,
+    'final_assessment': True,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_6', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 3,
+    'rec_was_2' : None,
+    'rec_was_3' : None,
+    'final_assessment': True,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_7', 
+    'importance' : 4
+  },{
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : 3,
+    'final_assessment': False,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_8', 
+    'importance' : 4
+  },{
+    'rec_1' : 4,
+    'rec_2' : 5, 
+    'rec_was_1' : 4,
+    'rec_was_2' : 5,
+    'rec_was_3' : None,
+    'final_assessment': False,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_9', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 4,
+    'rec_was_2' : 5,
+    'rec_was_3' : None,
+    'final_assessment': False,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_10', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 3,
+    'rec_was_2' : None,
+    'rec_was_3' : None,
+    'final_assessment': False,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_11', 
+    'importance' : 4
+  },{
+    'rec_1' : 1,
+    'rec_2' : 2, 
+    'rec_was_1' : 1,
+    'rec_was_2' : 2,
+    'rec_was_3' : None,
+    'final_assessment': False,
+    'f_a_status': True,
+    'event':'peers',
+    'text_version':'text_12', 
+    'importance' : 4
+  }],
+  [
+{
   'rec_1' : 4,
   'rec_2' : 5, 
-  'rec_was_1' : 3,
-  'rec_was_2' : None,
+  'rec_was_1' : 1,
+  'rec_was_2' : 2,
   'rec_was_3' : None,  
-  'part_of_top3': True,
-  'text':'text_1'
-},
-{
+  'final_assessment': True,
+  'f_a_status': False,
+  'event':'large_market_cap',
+  'text_version':'text_1', 
+  'importance' : 5
+},{
   'rec_1' : 4,
   'rec_2' : 5, 
   'rec_was_1' : 4,
   'rec_was_2' : 5,
-  'rec_was_3' : None,  
-  'part_of_top3': True,
-  'text':'text_2'
-},
-{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,  
-  'part_of_top3': True,
-  'text':'text_3'
-},
-]
-
-top_7_industry_inputs = [
-  {
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 3,
-  'rec_was_2' : None,
-  'rec_was_3' : None,  
-  'part_of_top7': True,
-  'text':'text_1'
-},
-{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : None,
-  'rec_was_2' : None,
-  'rec_was_3' : None,  
-  'part_of_top7': True,
-  'text':'text_2'
-},
-{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,  
-  'part_of_top7': True,
-  'text':'text_3'
-},
-]
-
-peers_inputs = [
-
-  {
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,
-  'final_assessment': False,
-  'f_a_status': True,
-  'rule_3':True,
-  'text':'text_1'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,  
-  'final_assessment': True,
-  'f_a_status': False,
-  'text':'text_2'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 4,
-  'rec_was_2' : 5,
   'rec_was_3' : None,
   'final_assessment': True,
   'f_a_status': False,
-  'text':'text_3'
+  'event':'large_market_cap',
+  'text_version':'text_2', 
+  'importance' : 5
 },{
   'rec_1' : 4,
   'rec_2' : 5, 
@@ -209,7 +370,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': True,
   'f_a_status': False,
-  'text':'text_4'
+  'event':'large_market_cap',
+  'text_version':'text_3', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -218,7 +381,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': True, 
   'f_a_status': True,
-  'text':'text_5'
+  'event':'large_market_cap',
+  'text_version':'text_4', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -227,7 +392,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': True,
   'f_a_status': True,
-  'text':'text_6'
+  'event':'large_market_cap',
+  'text_version':'text_5', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -236,7 +403,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': True,
   'f_a_status': True,
-  'text':'text_7'
+  'event':'large_market_cap',
+  'text_version':'text_6', 
+  'importance' : 5
 },{
   'rec_1' : 4,
   'rec_2' : 5, 
@@ -245,7 +414,9 @@ peers_inputs = [
   'rec_was_3' : 3,
   'final_assessment': False,
   'f_a_status': True,
-  'text':'text_8'
+  'event':'large_market_cap',
+  'text_version':'text_7', 
+  'importance' : 5
 },{
   'rec_1' : 4,
   'rec_2' : 5, 
@@ -254,7 +425,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': False,
   'f_a_status': True,
-  'text':'text_9'
+  'event':'large_market_cap',
+  'text_version':'text_8', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -263,7 +436,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': False,
   'f_a_status': True,
-  'text':'text_10'
+  'event':'large_market_cap',
+  'text_version':'text_9', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -272,7 +447,9 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': False,
   'f_a_status': True,
-  'text':'text_11'
+  'event':'large_market_cap',
+  'text_version':'text_10', 
+  'importance' : 5
 },{
   'rec_1' : 1,
   'rec_2' : 2, 
@@ -281,107 +458,8 @@ peers_inputs = [
   'rec_was_3' : None,
   'final_assessment': False,
   'f_a_status': True,
-  'text':'text_12'
+  'event':'large_market_cap',
+  'text_version':'text_11', 
+  'importance' : 5
 }]
-
-large_market_cap_inputs = [
-{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,  
-  'final_assessment': True,
-  'f_a_status': False,
-  'text':'text_1'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 4,
-  'rec_was_2' : 5,
-  'rec_was_3' : None,
-  'final_assessment': True,
-  'f_a_status': False,
-  'text':'text_2'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 3,
-  'rec_was_2' : None,
-  'rec_was_3' : None,
-  'final_assessment': True,
-  'f_a_status': False,
-  'text':'text_3'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,
-  'final_assessment': True, 
-  'f_a_status': True,
-  'text':'text_4'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 4,
-  'rec_was_2' : 5,
-  'rec_was_3' : None,
-  'final_assessment': True,
-  'f_a_status': True,
-  'text':'text_5'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 3,
-  'rec_was_2' : None,
-  'rec_was_3' : None,
-  'final_assessment': True,
-  'f_a_status': True,
-  'text':'text_6'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : 3,
-  'final_assessment': False,
-  'f_a_status': True,
-  'text':'text_7'
-},{
-  'rec_1' : 4,
-  'rec_2' : 5, 
-  'rec_was_1' : 4,
-  'rec_was_2' : 5,
-  'rec_was_3' : None,
-  'final_assessment': False,
-  'f_a_status': True,
-  'text':'text_8'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 4,
-  'rec_was_2' : 5,
-  'rec_was_3' : None,
-  'final_assessment': False,
-  'f_a_status': True,
-  'text':'text_9'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 3,
-  'rec_was_2' : None,
-  'rec_was_3' : None,
-  'final_assessment': False,
-  'f_a_status': True,
-  'text':'text_10'
-},{
-  'rec_1' : 1,
-  'rec_2' : 2, 
-  'rec_was_1' : 1,
-  'rec_was_2' : 2,
-  'rec_was_3' : None,
-  'final_assessment': False,
-  'f_a_status': True,
-  'text':'text_11'
-}]
+]

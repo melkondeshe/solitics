@@ -1,4 +1,3 @@
-
 import pandas as pd
 import os 
 from datetime import datetime
@@ -69,7 +68,6 @@ def my_portfolio(file_path, input):
                    most_negative_param_coeff=most_negative_param_coeff, industry=industry, sector=sector, region=region, country=country,
                    isin=isin)
   return generated_text
-
 
 def top_3_industry(file_path, input):
 
@@ -170,7 +168,6 @@ def top_7_sector(file_path, input):
                    isin=isin)
   return generated_text
 
- 
 def peers(file_path, input):
   mdb = pd.read_parquet(file_path)
   now_date = datetime.now().date()
@@ -224,7 +221,7 @@ def peers(file_path, input):
     report_type = 'Official'
   else:
     report_type = final.iloc[0]['instance']
-  generated_text = text.peer_text(text_version=input['text'], peer_name=name, company_name=name, positive_adjective=positive, negative_adjective=negative, 
+  generated_text = text.peer_text(event=input['event'], text_version=input['text_version'] peer_name=name, company_name=name, positive_adjective=positive, negative_adjective=negative, 
                    percent=top_percent, report_type=report_type, number_of_last_underperform_in_a_row=number_of_last_underperform_in_a_row,
                    most_positive_param_name=most_positive_param_name, increased_decreased=increased_decreased, most_positive_param_pct=most_positive_param_pct,
                    most_positive_param_coeff=most_positive_param_coeff, number_of_last_buy_and_strongbuy_in_a_row=number_of_last_buy_and_strongbuy_in_a_row,
