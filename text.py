@@ -1,6 +1,3 @@
-from importlib_metadata import version
-
-
 positive = ['Great', 'Excellent', 'Impressive', 'Splendid', 'Very good', 'Sensational', 'Magnificent', 'Outstanding', 'Spectacular', 'Extraordinary']
 # strong_buy = ['Sensational', 'Magnificent', 'Outstanding', 'Spectacular', 'Extraordinary']
 underperform = ['disappointing', 'inferior', 'very bad', 'unsatisfactory', 'poor']
@@ -66,9 +63,6 @@ def generate_text(**kwargs):
     }
     event = kwargs['event']
     text_version = kwargs['text_version']
-    print(kwargs['event'])
-    print(kwargs['text_version'])
-    print(version[event][text_version])
     body = {
 	'type': kwargs['event'],
 	'company': kwargs['company_name'],
@@ -82,5 +76,4 @@ def generate_text(**kwargs):
 	'body': version[event][text_version], 
 	'importance': kwargs['importance'],
     }
-    print(body)
     return body

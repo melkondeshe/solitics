@@ -1,3 +1,4 @@
+from re import L
 import pandas as pd
 import os 
 from datetime import datetime
@@ -16,22 +17,20 @@ import random
 def events(file_path, input):
     mdb = pd.read_parquet(file_path)
     now_date = datetime.now().date()
-    print(input)
     mdb['date'] = pd.to_datetime(mdb['date']).dt.date
     #   checking 1st rule
     internal_rule_1 = now_date - mdb['date'] <= timedelta(200)
     #   checking 2nd rule
     internal_rule_2 = (mdb.buying_recommendation == input['rec_1']) | (mdb.buying_recommendation == input['rec_2'])
-    mdb = mdb.loc[internal_rule_1 & internal_rule_2,:]
-    
     #checking 3th rule
-    x = mdb.loc[:, ['cid']].join(other=mdb.query("cid in @internal_rule_2.cid").sort_values(by=['cid', 'year', 'quarter']).groupby(by='cid', sort=False).shift(periods=-1)).groupby(by='cid', sort=False).tail(n=2).dropna(subset=mdb.columns[1:])
-    print(x,'x')
+    # x = mdb.loc[:, ['cid']].join(other=mdb.query("cid in @sorted_mdb.cid").sort_values(by=['cid', 'year', 'quarter']).groupby(by='cid', sort=False).shift(periods=-1)).groupby(by='cid', sort=False).tail(n=2).dropna(subset=mdb.columns[1:])
+    # print(x,'x')
+    print(internal_rule_2)
+    query_cid = mdb.query("cid in @internal_rule_2.cid")
+    sort_date = query_cid.sort_values(by=['cid', 'date'], ascending=False).reset_index(drop=True)
     # sorted_mdb = mdb.query("cid in @internal_rule_2.cid").sort_values(by=['cid','date']).groupby(['cid']).shift(-1).tail(1)
     # print(sorted_mdb)
     a
-    sort_date = mdb.sort_values(by=['cid', 'date'], ascending=False).reset_index(drop=True)
-    query_cid = sort_date.query("cid in @internal_rule_2.cid")
     filtered_mdb = mdb.sort_values(by=['cid', 'date'], ascending=False).query("cid in @internal_rule_2.cid")
     mdb_by_date = filtered_mdb.loc[(now_date - filtered_mdb['date'] >= timedelta(200)) & (now_date - filtered_mdb['date'] <= timedelta(400))]
     internal_rule_3 = mdb_by_date[(mdb_by_date.buying_recommendation == input['rec_was_1']) | (mdb_by_date.buying_recommendation == input['rec_was_2'])| (mdb_by_date.buying_recommendation == input['rec_was_3'])]
