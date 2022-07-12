@@ -8,7 +8,9 @@ import text
 from events import events
 from inputs import all_inputs
 import random
-
+import pandas as pd
+# df = pd.read_csv('peers.csv')
+# print(df.cid[18511])
 
 file_path = f'{os.getcwd()}/mdb.parquet'
 
@@ -22,10 +24,7 @@ MAIN_OUTPUTS = []
 for input in all_inputs:
   for i in input:
     output = events(file_path, i)
-    
-    print(212222222222222, output)
     if output:
-      print(11111111111, output)
       MAIN_OUTPUTS.append(output)
       break
   
