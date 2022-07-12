@@ -10,7 +10,6 @@ from functions import get_count
 def events(file_path, input):
     mdb = pd.read_parquet(file_path)
     peers = pd.read_parquet(f'{os.getcwd()}/peers.parquet')
-    print(peers)
     now_date = datetime.now().date()
     mdb['date'] = pd.to_datetime(mdb['date']).dt.date
     #   checking 1st rule
@@ -48,17 +47,14 @@ def events(file_path, input):
                 top_percent = i
                 break
     if input['event'] == 'top_3_industry':
-        print('top3')
         sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=False)[:3]
     if input['event'] == 'top_7_sector':
-        print('top4')
         sorted_mdb = mdb.sort_values(by=['final_assessment'], ascending=False)[:7]
     final = internal_rule_3.query("cid in @sorted_mdb.cid")
     if final.empty:
         return False
     number_of_last_underperform_in_a_row = get_count(mdb, [final.iloc[0]['cid']], [1,2])
     number_of_last_buy_and_strongbuy_in_a_row = get_count(mdb, [final.iloc[0]['cid']], [4,5])
-    print(number_of_last_underperform_in_a_row, number_of_last_buy_and_strongbuy_in_a_row)
     top_7_sector_comany_name = final.iloc[0]['name']
     top_3_industry_comany_name = final.iloc[0]['name']
     name_of_most_positive_dataCollectionTypeNme = mdb.loc[mdb['cid'] == final.iloc[0]['cid']].sort_values(by=['cash_flow', 'income_statement', 'balance_sheet'], ascending=False)
