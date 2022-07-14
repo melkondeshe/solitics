@@ -1,6 +1,8 @@
 all_inputs = [
     [
         {
+            # For 1st rule
+            "days": 30,
             # For 2rd rule
             ### rule will be passed if recommendation of row is recommendation or rec_2
             "recommendation": [4, 5],
@@ -11,11 +13,13 @@ all_inputs = [
             ### rule will be passed if one of the peers is in the top 1/5/10
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
+
             "event": "portfolio",
             "text_version": "text_1",
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -25,6 +29,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -34,6 +39,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": True,
@@ -43,6 +49,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -52,6 +59,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -61,6 +69,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,3],
             "has_peers_filtering": False,
@@ -70,6 +79,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -79,6 +89,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -88,6 +99,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": False,
@@ -97,6 +109,7 @@ all_inputs = [
             "importance": 1,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": False,
@@ -106,27 +119,34 @@ all_inputs = [
             "importance": 1,
         },
     ],
+
     [
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [3,None,None],
             "part_of_top3": True,
+            "event_type_top" : 3,
             "event": "top_3_industry",
             "text_version": "text_1",
             "importance": 2,
         },
         {
+            "days": 30,
             "recommendation": [4, 5],
             "recommendation_was": [4,5,None],
             "part_of_top3": True,
+            "event_type_top" : 3,
             "event": "top_3_industry",
             "text_version": "text_2",
             "importance": 2,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,None],
             "part_of_top3": True,
+            "event_type_top" : 3,
             "event": "top_3_industry",
             "text_version": "text_3",
             "importance": 2,
@@ -134,25 +154,31 @@ all_inputs = [
     ],
     [
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [3,None,None],
             "part_of_top7": True,
+            "event_type_top" : 7,
             "event": "top_7_sector",
             "text_version": "text_1",
             "importance": 3,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [None,None,None],
             "part_of_top7": True,
+            "event_type_top" : 7,
             "event": "top_7_sector",
             "text_version": "text_2",
             "importance": 3,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,None],
             "part_of_top7": True,
+            "event_type_top" : 7,
             "event": "top_7_sector",
             "text_version": "text_3",
             "importance": 3,
@@ -160,6 +186,7 @@ all_inputs = [
     ],
     [
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": False,
@@ -170,6 +197,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": True,
@@ -179,6 +207,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -188,6 +217,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -197,6 +227,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": True,
@@ -206,6 +237,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -215,6 +247,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -224,6 +257,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,3],
             "has_peers_filtering": False,
@@ -233,6 +267,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -242,6 +277,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -251,6 +287,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": False,
@@ -260,6 +297,7 @@ all_inputs = [
             "importance": 4,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": False,
@@ -271,6 +309,7 @@ all_inputs = [
     ],
     [
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": True,
@@ -280,6 +319,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -289,6 +329,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -298,6 +339,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": True,
@@ -307,6 +349,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": True,
@@ -316,6 +359,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": True,
@@ -325,6 +369,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [1,2,3],
             "has_peers_filtering": False,
@@ -334,6 +379,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [4,5],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -343,6 +389,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [4,5,None],
             "has_peers_filtering": False,
@@ -352,6 +399,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [3,None,None],
             "has_peers_filtering": False,
@@ -361,6 +409,7 @@ all_inputs = [
             "importance": 5,
         },
         {
+            "days": 30,
             "recommendation": [1,2],
             "recommendation_was": [1,2,None],
             "has_peers_filtering": False,

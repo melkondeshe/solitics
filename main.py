@@ -25,6 +25,7 @@ MAIN_OUTPUTS = []
 for input in all_inputs:
     for i in input:
         output = events(file_path, i)
+        print(output)
         if output:
             MAIN_OUTPUTS.append(output)
             break
