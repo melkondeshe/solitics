@@ -22,8 +22,8 @@ def events(file_path, input):
 
     #   checking 2nd rule
     internal_rule_2 = internal_rule_1[
-        (internal_rule_1.buying_recommendation == input["rec_1"])
-        | (internal_rule_1.buying_recommendation == input["rec_2"])
+        (internal_rule_1.buying_recommendation == input["recommendation"][0])
+        | (internal_rule_1.buying_recommendation == input["recommendation"][1])
     ]
 
     # checking 3th rule
@@ -45,15 +45,15 @@ def events(file_path, input):
                 if (
                     (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["rec_was_1"]
+                        == input["recommendation_was"][0]
                     )
                     or (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["rec_was_2"]
+                        == input["recommendation_was"][1]
                     )
                     or (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["rec_was_3"]
+                        == input["recommendation_was"][2]
                     )
                 ):
                     appended_data.append(
@@ -61,6 +61,7 @@ def events(file_path, input):
                     )
                 break
     cid_date = pd.DataFrame.from_records(appended_data)
+    print(cid_date)
     if cid_date.empty:
         return False
     else:
@@ -81,7 +82,7 @@ def events(file_path, input):
                 competitors_cids = competitors_cids.append(row, ignore_index=True)
 
             competitors_cids = competitors_cids.sort_values(
-                by=["final_assessment"], ascending=input['is_has_peers_filtering_top']
+                by=["final_assessment"], ascending=input['is_final_assessment_ascending']
             )[:10]
             top_list = [1, 5, 10]
             for i in top_list:
@@ -107,9 +108,11 @@ def events(file_path, input):
         return False
 
     generated_texts = []
-    for _, row in final:
-        number_of_last_underperform_in_a_row = get_count(mdb, row["cid"], [1, 2])
-        number_of_last_buy_and_strongbuy_in_a_row = get_count(mdb, row["cid"], [4, 5])
+    print(final)
+    for index, row in final.iterrows():
+        print(111111111111)
+        number_of_last_underperform_in_a_row = get_count(mdb, [row["cid"]], [1, 2])
+        number_of_last_buy_and_strongbuy_in_a_row = get_count(mdb, [row["cid"]], [4, 5])
         top_7_sector_comany_name = row["name"]
         top_3_industry_comany_name = row["name"]
         name_of_most_positive_dataCollectionTypeNme = mdb.loc[

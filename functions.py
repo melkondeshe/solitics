@@ -8,6 +8,7 @@ import random
 
 def get_count(mdb, cid, num_list):
     count = 0
+    print(mdb, cid, num_list)
     sorted_mdb = mdb.query("cid in @cid").sort_values(by=["date"], ascending=False)
     for index, row in sorted_mdb.iterrows():
         if (
