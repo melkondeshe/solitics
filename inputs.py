@@ -1,3 +1,11 @@
+RECOMMENDATION = {
+    "strong_buy":5,
+    "buy":4,
+    "hold":3,
+    "underperform_1":1,
+    "underperform_2":2,
+}
+
 all_inputs = [
     [
         {
@@ -5,10 +13,10 @@ all_inputs = [
             "days": 30,
             # For 2rd rule
             ### rule will be passed if recommendation of row is recommendation or rec_2
-            "recommendation": [4, 5],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             # For 3rd rule
             ### rule will be passed if previous recommendation of row was recommendation_was or recommendation_was or rec_was_3
-            "recommendation_was": [3,2,1],
+            "recommendation_was":[RECOMMENDATION['hold'], RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             # For 4th rule
             ### rule will be passed if one of the peers is in the top 1/5/10
             "has_peers_filtering": True,
@@ -20,8 +28,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "portfolio",
@@ -30,8 +38,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "portfolio",
@@ -40,8 +48,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -50,8 +58,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -60,8 +68,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -70,8 +78,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,3],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -80,8 +88,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'],None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -90,8 +98,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'],None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -100,8 +108,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -110,8 +118,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "portfolio",
@@ -123,8 +131,8 @@ all_inputs = [
     [
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "part_of_top3": True,
             "event_type_top" : 3,
             "event": "top_3_industry",
@@ -133,8 +141,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4, 5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "part_of_top3": True,
             "event_type_top" : 3,
             "event": "top_3_industry",
@@ -143,8 +151,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "part_of_top3": True,
             "event_type_top" : 3,
             "event": "top_3_industry",
@@ -155,8 +163,8 @@ all_inputs = [
     [
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "part_of_top7": True,
             "event_type_top" : 7,
             "event": "top_7_sector",
@@ -165,7 +173,7 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [None,None,None],
             "part_of_top7": True,
             "event_type_top" : 7,
@@ -175,8 +183,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "part_of_top7": True,
             "event_type_top" : 7,
             "event": "top_7_sector",
@@ -187,8 +195,8 @@ all_inputs = [
     [
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "rule_3": True,
@@ -198,8 +206,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "peers",
@@ -208,8 +216,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "peers",
@@ -218,8 +226,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "peers",
@@ -228,8 +236,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -238,8 +246,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -248,8 +256,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -258,8 +266,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,3],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -268,8 +276,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -278,8 +286,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -288,8 +296,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -298,8 +306,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "peers",
@@ -310,8 +318,8 @@ all_inputs = [
     [
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "large_market_cap",
@@ -320,8 +328,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "large_market_cap",
@@ -330,8 +338,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": False,
             "event": "large_market_cap",
@@ -340,8 +348,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -350,8 +358,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -360,8 +368,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -370,8 +378,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [1,2,3],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -380,8 +388,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [4,5],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -390,8 +398,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [4,5,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -400,8 +408,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [3,None,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",
@@ -410,8 +418,8 @@ all_inputs = [
         },
         {
             "days": 30,
-            "recommendation": [1,2],
-            "recommendation_was": [1,2,None],
+            "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
+            "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
             "is_final_assessment_ascending": True,
             "event": "large_market_cap",

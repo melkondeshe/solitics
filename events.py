@@ -1,5 +1,3 @@
-from math import fabs
-from re import A, L
 import pandas as pd
 import os
 from datetime import datetime
@@ -22,16 +20,18 @@ def events(file_path, input):
     internal_rule_1 = mdb.loc[now_date - mdb["date"] <= timedelta(input["days"])]
     #   checking 2nd rule
     internal_rule_2 = internal_rule_1[
-        (internal_rule_1.buying_recommendation == input["recommendation"][0])
-        | (internal_rule_1.buying_recommendation == input["recommendation"][1])
+        internal_rule_1.buying_recommendation.isin(input["recommendation"])
     ]
 
     # checking 3th rule
+    # get from mdb cids which equal cids from internal_rule_2
     query_cid = mdb.query("cid in @internal_rule_2.cid")
+    # sort by cid and date
     sort_date = query_cid.sort_values(by=["cid", "date"], ascending=False).reset_index(
         drop=True
     )
     cids = {}
+    # create an dict with cid, date and buying_recommendation
     for _, row in sort_date.iterrows():
         if not row["cid"] in cids:
             cids[row["cid"]] = []
@@ -39,28 +39,31 @@ def events(file_path, input):
             {"date": row["date"], "buying_recommendation": row["buying_recommendation"]}
         )
     appended_data = []
+    # get from internal_rule_2 all rows which previus row equal to recommendation_was value
     for _, row in internal_rule_2.iterrows():
         for i in range(len(cids[row["cid"]]) - 1):
             if cids[row["cid"]][i]["date"] == row["date"]:
                 if (
                     (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["recommendation_was"][0]
+                        in input["recommendation_was"]
                     )
                     or (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["recommendation_was"][1]
+                        in input["recommendation_was"]
                     )
                     or (
                         cids[row["cid"]][i + 1]["buying_recommendation"]
-                        == input["recommendation_was"][2]
+                        in input["recommendation_was"]
                     )
                 ):
                     appended_data.append(
                         {"cid": row["cid"], "date": cids[row["cid"]][i]["date"]}
                     )
                 break
+    # turn list into dataframe
     cid_date = pd.DataFrame.from_records(appended_data)
+    # check if df is empty return False, else get from internal_rule_2 all data which equal to cid_date
     if cid_date.empty:
         return False
     else:
@@ -69,12 +72,15 @@ def events(file_path, input):
         )
     # checking 4th rule
     final_output = []
+    # check if 4 rule exist and if peers exist in 4 rule, if not internal_rule_3 became to final 
     if "has_peers_filtering" in input:
         if not input["has_peers_filtering"]:
             final = internal_rule_3
         else:
             for _, row in internal_rule_3.iterrows():
+                # get from peers all cids which equal to internal_rule_3
                 peers = peers.loc[peers.cid == row["cid"]]
+                # get from mdb all cids which equal to peers competitorcompanyid
                 competitors_cids = mdb.query("cid in @peers.competitorcompanyid")
 
                 # Checking if it row exists inside competitors
@@ -98,7 +104,7 @@ def events(file_path, input):
 
     if final_output:
         final = pd.concat(final_output)
-    
+    # 4 rule with top3 and top7 
     if 'event_type_top' in input:
         sorted_mdb = mdb.sort_values(by=["final_assessment"], ascending=False)[:input['event_type_top']]
         final_step = internal_rule_3.query("cid in @sorted_mdb.cid")
@@ -110,7 +116,7 @@ def events(file_path, input):
     if final.empty:
         # if no result found go to the next step
         return False
-
+    # generate all values for text and put it in text
     generated_texts = []
     for index, row in final.iterrows():
         row_cid = [row["cid"]]

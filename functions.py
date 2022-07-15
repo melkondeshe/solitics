@@ -1,9 +1,3 @@
-import pandas as pd
-import os
-from datetime import datetime
-from datetime import timedelta
-import text
-
 
 def get_count(mdb, cid, num_list):
     count = 0
