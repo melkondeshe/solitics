@@ -1,24 +1,18 @@
+from re import T
 import pandas as pd
 import os
 from datetime import datetime
 from datetime import timedelta
+import historical_text
 import random
 from functions import get_count
-import text
 
-def events(mdb_path, peers_path, input):
-    mdb = pd.read_parquet(mdb_path)
-    peers = pd.read_parquet(peers_path)
-    now_date = datetime.now().date()
-    mdb["date"] = pd.to_datetime(mdb["date"]).dt.date
-
-    #   checking 1st rule
-    internal_rule_1 = mdb.loc[now_date - mdb["date"] <= timedelta(input["days"])]
+def events(file_path, input, day,mdb,internal_rule_1, peers):
     #   checking 2nd rule
     internal_rule_2 = internal_rule_1[
         internal_rule_1.buying_recommendation.isin(input["recommendation"])
     ]
-    print(internal_rule_1)
+
     # checking 3th rule
     # get from mdb cids which equal cids from internal_rule_2
     query_cid = mdb.query("cid in @internal_rule_2.cid")
@@ -97,7 +91,6 @@ def events(mdb_path, peers_path, input):
                         final["top_percent"] = i
                         final_output.append(final)
                         break
-
     if final_output:
         final = pd.concat(final_output)
     # 4 rule with top3 and top7 
@@ -114,6 +107,8 @@ def events(mdb_path, peers_path, input):
         return False
     # generate all values for text and put it in text
     generated_texts = []
+    event_types = []
+    event_date = []
     for index, row in final.iterrows():
         row_cid = [row["cid"]]
         number_of_last_underperform_in_a_row = get_count(mdb, row_cid, [1, 2])
@@ -204,6 +199,10 @@ def events(mdb_path, peers_path, input):
             isin=isin,
         )
         generated_texts.append(generated_text)
-
-
-    return generated_texts
+        event_types.append(input["event"])
+        event_date.append(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    if not final.empty:
+        final['event_types'] = event_types
+        final['event_date'] = event_date
+        final['generated_text'] = generated_texts
+    return final

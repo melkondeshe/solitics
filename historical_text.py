@@ -135,4 +135,4 @@ def generate_text(**kwargs):
             "importance": kwargs["importance"],
         }
     }
-    return body
+    return version[event][text_version]

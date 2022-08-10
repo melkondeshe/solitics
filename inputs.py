@@ -10,7 +10,7 @@ all_inputs = [
     [
         {
             # For 1st rule
-            "days": 30,
+            "days": 100,
             # For 2rd rule
             ### rule will be passed if recommendation of row is recommendation or rec_2
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
@@ -27,7 +27,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -37,7 +37,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -47,7 +47,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
@@ -57,7 +57,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -67,7 +67,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -77,7 +77,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
@@ -87,7 +87,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'],None],
             "has_peers_filtering": False,
@@ -97,7 +97,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'],None],
             "has_peers_filtering": False,
@@ -107,7 +107,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
@@ -117,7 +117,7 @@ all_inputs = [
             "importance": 1,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
@@ -130,7 +130,7 @@ all_inputs = [
 
     [
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "part_of_top3": True,
@@ -140,7 +140,7 @@ all_inputs = [
             "importance": 2,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "part_of_top3": True,
@@ -150,7 +150,7 @@ all_inputs = [
             "importance": 2,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "part_of_top3": True,
@@ -162,7 +162,7 @@ all_inputs = [
     ],
     [
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "part_of_top7": True,
@@ -172,7 +172,7 @@ all_inputs = [
             "importance": 3,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [None,None,None],
             "part_of_top7": True,
@@ -182,7 +182,7 @@ all_inputs = [
             "importance": 3,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "part_of_top7": True,
@@ -194,7 +194,7 @@ all_inputs = [
     ],
     [
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
@@ -205,7 +205,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
@@ -215,7 +215,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -225,7 +225,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -235,7 +235,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
@@ -245,7 +245,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -255,7 +255,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -265,7 +265,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
@@ -275,7 +275,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
@@ -285,7 +285,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
@@ -295,7 +295,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
@@ -305,7 +305,7 @@ all_inputs = [
             "importance": 4,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,
@@ -317,7 +317,7 @@ all_inputs = [
     ],
     [
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
@@ -327,7 +327,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -337,7 +337,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -347,7 +347,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": True,
@@ -357,7 +357,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": True,
@@ -367,7 +367,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": True,
@@ -377,7 +377,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], RECOMMENDATION['hold']],
             "has_peers_filtering": False,
@@ -387,7 +387,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
@@ -397,7 +397,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['strong_buy'], RECOMMENDATION['buy'], None],
             "has_peers_filtering": False,
@@ -407,7 +407,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['hold'], None, None],
             "has_peers_filtering": False,
@@ -417,7 +417,7 @@ all_inputs = [
             "importance": 5,
         },
         {
-            "days": 30,
+            "days": 100,
             "recommendation": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2']],
             "recommendation_was": [RECOMMENDATION['underperform_1'], RECOMMENDATION['underperform_2'], None],
             "has_peers_filtering": False,

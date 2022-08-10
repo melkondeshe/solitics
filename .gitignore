@@ -1,2 +1,4 @@
 mdb.parquet
 peers.parquet
+*.pyc
+*.csv
