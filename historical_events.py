@@ -74,7 +74,7 @@ def events(file_path, input, day,mdb,internal_rule_1, peers):
                 competitors_cids = mdb.query("cid in @peers.competitorcompanyid")
 
                 # Checking if it row exists inside competitors
-                if row["name"] not in competitors_cids.name:
+                if row["cid"] not in competitors_cids.cid:
                     # if not - add to sort & calculate top percentage
                     row_df = pd.DataFrame(row).transpose()
                     competitors_cids = pd.concat([competitors_cids,row_df], ignore_index=True)
@@ -84,9 +84,10 @@ def events(file_path, input, day,mdb,internal_rule_1, peers):
 
                 # TODO: 
                 top_list = [1, 5, 10]
+                # [google, fb, inst, insta, google]
                 for i in top_list:
                     top_competitors = competitors_cids[0:i]
-                    final = top_competitors.loc[top_competitors["name"] == row["name"]]
+                    final = top_competitors.loc[top_competitors["cid"] == row["cid"]]
                     if not final.empty:
                         final["top_percent"] = i
                         final_output.append(final)
@@ -126,11 +127,11 @@ def events(file_path, input, day,mdb,internal_rule_1, peers):
         region = row["region"]
         country = row["country"]
         isin = row["isin"]
-        positive = random.choice(text.positive)
-        negative = random.choice(text.negative)
+        positive = random.choice(historical_text.positive)
+        negative = random.choice(historical_text.negative)
 
         # TODO: Do we need it?
-        neutral = random.choice(text.neutral)
+        neutral = random.choice(historical_text.neutral)
 
         # TODO: Need to clarify and update increase and decreased values
         increased_decreased = None
@@ -138,9 +139,9 @@ def events(file_path, input, day,mdb,internal_rule_1, peers):
             'roa_roe', 'ncf_ncff_ncfo', 'capex', 'assetturnover_currentratio', 'fcf']
         df_most = final[col_names]
         most_positive_param_name = df_most.max().sort_values(ascending=False).index[0]
-        most_positive_param_name = text.param_names[most_positive_param_name]
+        most_positive_param_name = historical_text.param_names[most_positive_param_name]
         most_negative_param_name = df_most.min().sort_values(ascending=True).index[0]
-        most_negative_param_name = text.param_names[most_negative_param_name]
+        most_negative_param_name = historical_text.param_names[most_negative_param_name]
 
 
         most_positive_param_pct = int(
@@ -168,7 +169,7 @@ def events(file_path, input, day,mdb,internal_rule_1, peers):
             report_type = "Official"
         else:
             report_type = row["instance"]
-        generated_text = text.generate_text(
+        generated_text = historical_text.generate_text(
             event=input["event"],
             text_version=input["text_version"],
             importance=input["importance"],
